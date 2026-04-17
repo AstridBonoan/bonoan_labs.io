@@ -66,12 +66,6 @@ export function Services() {
                   </div>
                 ))}
               </div>
-
-              <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
-                <p className="text-sm text-slate-600 dark:text-slate-400">
-                  Pricing: <span className="font-semibold text-slate-900 dark:text-white">To be determined</span>
-                </p>
-              </div>
             </div>
           ))}
         </div>
