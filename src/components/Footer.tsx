@@ -1,5 +1,79 @@
 export function Footer() {
-  const socials = [
+  return (
+    <footer className="bg-slate-900 dark:bg-slate-950 text-white py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-200">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 pb-12 border-b border-slate-800">
+          {/* Brand */}
+          <div>
+            <h3 className="text-2xl font-bold mb-2">Bonoan Labs</h3>
+            <p className="text-slate-400">
+              Creating exceptional digital experiences that transform businesses.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <a
+                  href="#about"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Services
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Pricing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="text-slate-400 hover:text-white transition-colors"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="font-semibold mb-4">Get In Touch</h4>
+            <p className="text-slate-400 mb-2">
+              Ready to start your next project?
+            </p>
+            <a
+              href="#contact"
+              className="inline-block px-4 py-2 bg-white text-slate-900 rounded-lg font-semibold hover:bg-slate-100 transition-colors"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="text-center text-slate-400 text-sm">
+          <p>&copy; 2024 Bonoan Labs. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+export function Footer() {
     {
       name: 'Instagram',
       url: 'https://instagram.com',
