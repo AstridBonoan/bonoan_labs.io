@@ -39,17 +39,12 @@ export function Navbar({ isDark, onThemeToggle }: NavbarProps) {
             >
               Services
             </button>
-             <button              onClick={() => scrollToSection('pricing')}
+            <button
+              onClick={() => scrollToSection('pricing')}
               className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
             >
               Pricing
             </button>
-            <button              onClick={() => scrollToSection('services')}
-              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
-            >
-              Pricing
-            </button>
-
             <button
               onClick={() => scrollToSection('contact')}
               className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
