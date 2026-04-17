@@ -63,12 +63,12 @@ export function Pricing() {
   const graphicDesign = [
     {
       name: "Starter Brand Package",
-      price: "$150",
+      price: "$100",
       features: ["Logo", "Business Card", "Color Palette"]
     },
     {
       name: "Marketing Kit",
-      price: "$100",
+      price: "$150",
       features: ["Flyer", "Social Media Posts", "Ad Graphic"]
     },
     {
