@@ -106,9 +106,6 @@ export function Pricing() {
           </div>
         ))}
       </div>
-      <button className="mt-8 w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold py-2 px-4 rounded-lg hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors duration-200">
-        Get Started
-      </button>
     </div>
   );
 
