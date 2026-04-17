@@ -62,19 +62,19 @@ export function Pricing() {
 
   const graphicDesign = [
     {
-      name: "Business Card Design",
-      price: "$75 – $150",
-      features: ["Professional business cards"]
-    },
-    {
       name: "Starter Brand Package",
-      price: "$150 – $300",
+      price: "$150",
       features: ["Logo", "Business Card", "Color Palette"]
     },
     {
       name: "Marketing Kit",
-      price: "$250 – $500",
-      features: ["Flyer", "Social Media Posts", "Ad Graphics"]
+      price: "$100",
+      features: ["Flyer", "Social Media Posts", "Ad Graphic"]
+    },
+    {
+      name: "Digital Presence Package",
+      price: "$300",
+      features: ["Landing Page Design", "Social Media Kit"]
     }
   ];
 
