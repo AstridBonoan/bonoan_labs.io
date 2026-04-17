@@ -39,6 +39,17 @@ export function Navbar({ isDark, onThemeToggle }: NavbarProps) {
             >
               Services
             </button>
+             <button              onClick={() => scrollToSection('pricing')}
+              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >
+              Pricing
+            </button>
+            <button              onClick={() => scrollToSection('services')}
+              className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >
+              Pricing
+            </button>
+
             <button
               onClick={() => scrollToSection('contact')}
               className="text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
@@ -152,6 +163,12 @@ export function Navbar({ isDark, onThemeToggle }: NavbarProps) {
               className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
             >
               Services
+            </button>
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="block w-full text-left px-6 py-4 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors duration-200 border-b border-slate-100 dark:border-slate-800"
+            >
+              Pricing
             </button>
             <button
               onClick={() => scrollToSection('contact')}
