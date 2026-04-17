@@ -30,7 +30,7 @@ export function Pricing() {
   const saasTools = [
     {
       name: "Basic",
-      price: "$1000 - $1500",
+      price: "$1000",
       features: [
         "Single Purpose Feature",
         "Simple Calculator/Price Estimator",
@@ -43,7 +43,7 @@ export function Pricing() {
     },
     {
       name: "Standard",
-      price: "$1600 - $3000",
+      price: "$1600",
       features: [
         "Real Business Workflow",
         "Appointment/Booking System",
@@ -55,7 +55,7 @@ export function Pricing() {
     },
     {
       name: "Advanced",
-      price: "$3200 - $5000",
+      price: "$3200",
       features: [
         "Full Software Product",
         "User Login & Dashboards",
@@ -70,17 +70,17 @@ export function Pricing() {
   const graphicDesign = [
     {
       name: "Starter Brand Package",
-      price: "$150 - $300",
+      price: "$150",
       features: ["Logo", "Business Card", "Color Palette"]
     },
     {
       name: "Marketing Kit",
-      price: "$100 - $250",
+      price: "$100",
       features: ["Flyer", "Social Media Posts", "Ad Graphic"]
     },
     {
       name: "Digital Presence Package",
-      price: "$300 - $1000+",
+      price: "$300",
       features: ["Landing Page Design", "Social Media Kit"]
     }
   ];
