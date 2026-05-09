@@ -8,9 +8,9 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
   const photoSrc = `${import.meta.env.BASE_URL}about-me.jpg`;
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white dark:bg-slate-950 transition-colors duration-200 px-4 sm:px-6 lg:px-8 pt-20 pb-8">
-      <div className="w-full max-w-5xl">
-        <div className="text-center mb-6">
+    <section className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-200 px-4 sm:px-6 lg:px-8 pt-20 pb-8">
+      <div className="w-full max-w-5xl mx-auto">
+        <div className="text-center mb-5">
           <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-1">
             About Me
           </h1>
@@ -20,10 +20,10 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
         </div>
 
         <article className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-[minmax(0,13rem)_1fr] gap-5 md:gap-7 p-5 sm:p-6 items-center">
-            {/* Photo card */}
-            <div className="w-full max-w-[14rem] mx-auto md:max-w-none">
-              <div className="aspect-[4/5] w-full rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center max-h-[38vh] md:max-h-[60vh]">
+          <div className="grid grid-cols-1 md:grid-cols-[minmax(0,16rem)_1fr] gap-6 md:gap-8 p-6 sm:p-8">
+            {/* Photo card -- stretches to match bio column height on md+ */}
+            <div className="w-full max-w-[16rem] mx-auto md:max-w-none md:h-full">
+              <div className="aspect-[4/5] md:aspect-auto md:h-full w-full rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center min-h-[14rem]">
                 <img
                   src={photoSrc}
                   alt="Astrid Bonoan"
@@ -46,15 +46,15 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
             </div>
 
             {/* Bio */}
-            <div className="min-w-0">
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-0.5">
+            <div className="min-w-0 flex flex-col">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white mb-1">
                 Astrid Bonoan
               </h2>
-              <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-3">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-4">
                 Founder &amp; Lead Developer
               </p>
 
-              <div className="space-y-2.5 text-[0.95rem] text-slate-700 dark:text-slate-300 leading-relaxed">
+              <div className="space-y-3 text-base text-slate-700 dark:text-slate-300 leading-relaxed">
                 <p>
                   I&rsquo;m the founder of Bonoan Labs, where I help small businesses
                   and growing teams ship websites, apps, and internal tools that
@@ -68,18 +68,18 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
                 </p>
               </div>
 
-              <div className="mt-5 flex flex-wrap gap-3">
+              <div className="mt-auto pt-6 flex flex-wrap gap-3">
                 <button
                   type="button"
                   onClick={() => onNavigate('/contact')}
-                  className="px-5 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-semibold hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors"
+                  className="px-5 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-semibold hover:bg-slate-800 dark:hover:bg-slate-100 transition-colors"
                 >
                   Get in touch
                 </button>
                 <button
                   type="button"
                   onClick={() => onNavigate('/services')}
-                  className="px-5 py-2 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-lg font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="px-5 py-2.5 border-2 border-slate-900 dark:border-white text-slate-900 dark:text-white rounded-lg font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 >
                   See what I do
                 </button>
