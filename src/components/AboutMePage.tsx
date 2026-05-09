@@ -8,13 +8,13 @@ export function AboutMePage({ onNavigate }: AboutMePageProps) {
   const photoSrc = `${import.meta.env.BASE_URL}about-me.jpg`;
 
   return (
-    <section className="min-h-screen flex flex-col bg-white dark:bg-slate-950 transition-colors duration-200 px-4 sm:px-6 lg:px-8 pt-20 pb-8">
+    <section className="min-h-screen flex flex-col bg-white dark:bg-slate-950 transition-colors duration-200 px-4 sm:px-6 lg:px-8 pt-28 pb-14">
       <div className="w-full max-w-5xl mx-auto flex-1 flex flex-col">
         <div className="text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-1">
+          <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white mb-3">
             About Me
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+          <p className="text-lg text-slate-600 dark:text-slate-300">
             The person behind Bonoan Labs.
           </p>
         </div>
