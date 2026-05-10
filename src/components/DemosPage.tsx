@@ -53,6 +53,12 @@ const demos = [
     title: "Project 9",
     href: "https://astridbonoan.github.io/AS-BistroDemo.io",
   },
+  {
+    image: "astrid-stone.png",
+    alt: "Astrid & Stone luxury real estate advisory landing page screenshot",
+    title: "Project 10",
+    href: "https://astridbonoan.github.io/AS-RealEstate.io/",
+  },
 ] as const;
 
 const cardShell =
