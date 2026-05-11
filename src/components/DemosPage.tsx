@@ -109,6 +109,13 @@ const demos: readonly Demo[] = [
     href: 'https://astridbonoan.github.io/AS_Restaurant_Dashboard.io/',
     category: 'saas',
   },
+  {
+    image: 'fieldpro-dashboard.png',
+    alt: 'FieldPro contractor operations dashboard for HVAC, plumbing, and home services',
+    title: 'Project 14',
+    href: 'https://astridbonoan.github.io/Contractor_Dashboard.io/',
+    category: 'saas',
+  },
 ];
 
 const cardShell =
