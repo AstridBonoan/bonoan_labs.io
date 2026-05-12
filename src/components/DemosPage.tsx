@@ -116,6 +116,13 @@ const demos: readonly Demo[] = [
     href: 'https://astridbonoan.github.io/Contractor_Dashboard.io/',
     category: 'saas',
   },
+  {
+    image: 'as-gym-dashboard.png',
+    alt: 'AS Gym OS operations dashboard with member, revenue, and retention metrics',
+    title: 'Project 15',
+    href: 'https://astridbonoan.github.io/AS_Gym_Dashboard.io/',
+    category: 'saas',
+  },
 ];
 
 const cardShell =
