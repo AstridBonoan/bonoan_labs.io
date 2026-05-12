@@ -123,6 +123,13 @@ const demos: readonly Demo[] = [
     href: 'https://astridbonoan.github.io/AS_Gym_Dashboard.io/',
     category: 'saas',
   },
+  {
+    image: 'ecommerce-dashboard.png',
+    alt: 'Northwind Retail commerce admin overview with revenue KPIs, trend chart, and pulse metrics',
+    title: 'Project 16',
+    href: 'https://astridbonoan.github.io/E-Commerce_Dashboard.io/',
+    category: 'saas',
+  },
 ];
 
 const cardShell =
