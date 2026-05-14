@@ -132,11 +132,11 @@ const demos: readonly Demo[] = [
   },
 ];
 
-const MOBILE_PAGE = 6;
+const MOBILE_PAGE = 8;
 const compactMq = '(max-width: 639px)';
 
 const cardShell =
-  'flex h-full flex-col overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 max-sm:flex-row max-sm:items-stretch max-sm:rounded-lg';
+  'flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900';
 
 function countFor(filter: FilterId): number {
   if (filter === 'all') return demos.length;
@@ -183,8 +183,8 @@ export function DemosPage() {
           Explore live examples of websites, SaaS experiences, and interactive product builds.
         </p>
         <p className="mb-6 text-sm text-slate-500 dark:text-slate-400 sm:hidden">
-          Use the filters to shorten the list. On small screens we show a few at a time so you
-          are not scrolling forever.
+          Use the filters to shorten the list. On phones, demos load in a two-column grid a few
+          at a time so the page stays scannable.
         </p>
 
         {/* Category filter bar */}
@@ -237,31 +237,30 @@ export function DemosPage() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {demosToRender.map((demo) => (
               <article key={demo.href + demo.title} className={cardShell}>
                 <div
                   className={
-                    'flex shrink-0 items-center justify-center overflow-hidden bg-slate-100 dark:bg-slate-800 ' +
-                    'aspect-[16/10] w-full p-2 sm:p-2.5 max-sm:aspect-auto ' +
-                    'max-sm:h-[5.25rem] max-sm:w-[6.75rem] max-sm:min-w-[6.75rem] max-sm:max-w-[6.75rem] max-sm:rounded-l-lg max-sm:rounded-r-none max-sm:p-1.5'
+                    'flex w-full shrink-0 items-center justify-center overflow-hidden bg-slate-100 dark:bg-slate-800 ' +
+                    'aspect-[3/2] p-1.5 sm:aspect-[16/10] sm:p-2.5'
                   }
                 >
                   <img
                     src={`${demoImageBase}${demo.image}`}
                     alt={demo.alt}
-                    className="max-h-full max-w-full object-contain max-sm:object-cover max-sm:object-top"
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
-                <div className="flex min-w-0 flex-1 flex-col justify-center p-3 sm:p-5 max-sm:py-3 max-sm:pl-0 max-sm:pr-3">
-                  <h2 className="mb-2 truncate text-base font-semibold text-slate-900 dark:text-white sm:mb-3 sm:text-xl sm:whitespace-normal">
+                <div className="flex min-h-0 min-w-0 flex-1 flex-col p-2 sm:p-5">
+                  <h2 className="mb-1.5 line-clamp-2 text-xs font-semibold leading-snug text-slate-900 dark:text-white sm:mb-3 sm:text-xl sm:leading-normal">
                     {demo.title}
                   </h2>
                   <a
                     href={demo.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-auto inline-flex w-fit max-w-full shrink-0 items-center justify-center truncate rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 sm:px-4 sm:py-2 sm:text-sm"
+                    className="mt-auto inline-flex w-full min-w-0 items-center justify-center rounded-md bg-slate-900 px-2 py-1.5 text-[0.7rem] font-semibold text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 sm:w-fit sm:px-4 sm:py-2 sm:text-sm"
                   >
                     Open Demo
                   </a>
