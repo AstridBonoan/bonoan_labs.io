@@ -13,6 +13,7 @@ interface Demo {
   image: string;
   alt: string;
   title: string;
+  description: string;
   href: string;
   category: DemoCategory;
 }
@@ -21,119 +22,153 @@ const demos: readonly Demo[] = [
   {
     image: 'clothing.png',
     alt: 'AS Clothing Ecommerce screenshot',
-    title: 'Project 1',
+    title: 'Style That Sells Before the Cart',
+    description:
+      'Boutique fashion storefront with editorial pacing—built so browsing feels as intentional as the clothes.',
     href: 'https://astridbonoan.github.io/AS-ClothingEcommerce.io/',
     category: 'websites',
   },
   {
     image: 'autoshop.png',
     alt: 'AS Auto Shop screenshot',
-    title: 'Project 2',
+    title: 'Trust at First Rev',
+    description:
+      'Auto repair positioning with clear services and booking energy—because hesitation costs bays.',
     href: 'https://astridbonoan.github.io/AS-AutoShop.io/',
     category: 'websites',
   },
   {
     image: 'restaurant.png',
     alt: 'A&S Filipino Kitchen screenshot',
-    title: 'Project 3',
+    title: 'Flavor Worth a Second Helping',
+    description:
+      'Family-kitchen storytelling with menu presence—invite people to the table before they walk in.',
     href: 'https://astridbonoan.github.io/AS-FilipinoRestaurant.io/',
     category: 'websites',
   },
   {
     image: 'as-enterprises.png',
     alt: 'A&S Enterprises construction and real estate landing page screenshot',
-    title: 'Project 4',
+    title: 'Blueprints to Listings, One Credible Story',
+    description:
+      'Construction meets property clarity—proof, process, and a confident next step for big-ticket decisions.',
     href: 'https://astridbonoan.github.io/AS_RealEstate.io/',
     category: 'websites',
   },
   {
     image: 'as-law.png',
     alt: 'A&S Law corporate counsel landing page screenshot',
-    title: 'Project 5',
+    title: 'Counsel Without the Cold Shoulder',
+    description:
+      'Corporate law positioning that reads sharp and human—authority for teams that are scaling fast.',
     href: 'https://astridbonoan.github.io/A-S_LawFirm.io/',
     category: 'websites',
   },
   {
     image: 'lens-light.png',
     alt: 'Lens & Light photography portfolio screenshot',
-    title: 'Project 6',
+    title: 'Moments Worth Keeping',
+    description:
+      'Photography portfolio with gallery-first flow—because the right clients decide with their eyes first.',
     href: '#',
     category: 'websites',
   },
   {
     image: 'as-fitness.png',
     alt: 'AS Fitness gym landing page screenshot',
-    title: 'Project 7',
+    title: 'Sweat Now, Sign Up Next',
+    description:
+      'Gym landing with membership momentum—motivation, clarity, and a path from curious to committed.',
     href: 'https://astridbonoan.github.io/AS-Fitness/',
     category: 'websites',
   },
   {
     image: 'as-contractor.png',
     alt: 'AS Contractor HVAC about page screenshot',
-    title: 'Project 8',
+    title: 'Comfort They Can Feel Year-Round',
+    description:
+      'HVAC service story with seasonal hooks and low-friction contact—trust is the whole job.',
     href: 'https://astridbonoan.github.io/AS-Contractor.io/about',
     category: 'websites',
   },
   {
     image: 'as-bistro.png',
     alt: 'A.S. Bistro Urban Kitchen restaurant landing page screenshot',
-    title: 'Project 9',
+    title: 'Date-Night Energy, Reservation-Ready',
+    description:
+      'Urban bistro vibe with social-share polish—built for restaurants that live on first impressions.',
     href: 'https://astridbonoan.github.io/AS-BistroDemo.io',
     category: 'websites',
   },
   {
     image: 'astrid-stone.png',
     alt: 'Astrid & Stone luxury real estate advisory landing page screenshot',
-    title: 'Project 10',
+    title: 'Where Luxury Finds Its Address',
+    description:
+      'High-end advisory narrative with editorial restraint—story-led design for listings worth pausing over.',
     href: 'https://astridbonoan.github.io/AS-RealEstate.io/',
     category: 'websites',
   },
   {
     image: 'as-studio.png',
     alt: 'AS Studio contemporary fashion ecommerce landing page screenshot',
-    title: 'Project 11',
+    title: 'Runway Energy, Checkout Confidence',
+    description:
+      'Contemporary fashion ecommerce with lookbook rhythm—polish that still converts.',
     href: 'https://astridbonoan.github.io/AS-ClothingEcommerce/',
     category: 'websites',
   },
   {
     image: 'as-cafe.png',
     alt: 'AS Café cozy coffee shop landing page screenshot',
-    title: 'Project 12',
+    title: 'Good Coffee, Great Company',
+    description:
+      'Neighborhood café warmth—menu moments, hours, and a “meet us on the corner” pull you can feel.',
     href: 'https://astridbonoan.github.io/AS_Cafe.io/',
     category: 'websites',
   },
   {
     image: 'as-barbershop.png',
     alt: 'A.S. Barbershop downtown landing page with hero, book appointment, and services',
-    title: 'Project 13',
+    title: 'Sharp. Clean. Unmistakable.',
+    description:
+      'Downtown barbershop precision—booking-led hero and quiet confidence for service brands on the strip.',
     href: 'https://astridbonoan.github.io/AS_Barbershop.io/',
     category: 'websites',
   },
   {
     image: 'as-restaurant-dashboard.png',
     alt: 'AS Restaurant Operations dashboard with sales trend, guest flow, and live order rail',
-    title: 'Project 14',
+    title: 'The Pulse of a Busy Shift',
+    description:
+      'Operations dashboard concept—orders, flow, and the numbers a manager watches when the house is full.',
     href: 'https://astridbonoan.github.io/AS_Restaurant_Dashboard.io/',
     category: 'saas',
   },
   {
     image: 'fieldpro-dashboard.png',
     alt: 'FieldPro contractor operations dashboard for HVAC, plumbing, and home services',
-    title: 'Project 15',
+    title: 'From Dispatch Thinking to Paid Jobs',
+    description:
+      'Field-service ops view—crews, jobs, and cash-flow signals for teams that live in trucks and spreadsheets.',
     href: 'https://astridbonoan.github.io/Contractor_Dashboard.io/',
     category: 'saas',
   },
   {
     image: 'as-gym-dashboard.png',
     alt: 'AS Gym OS operations dashboard with member, revenue, and retention metrics',
-    title: 'Project 16',
+    title: 'Members, Revenue, Retention—Decoded',
+    description:
+      'Fitness business snapshot—who’s engaged, who’s slipping, and what’s working without digging through tabs.',
     href: 'https://astridbonoan.github.io/AS_Gym_Dashboard.io/',
     category: 'saas',
   },
   {
     image: 'ecommerce-dashboard.png',
     alt: 'Northwind Retail commerce admin overview with revenue KPIs, trend chart, and pulse metrics',
-    title: 'Project 17',
+    title: 'Retail Command Center',
+    description:
+      'Commerce admin concept—revenue trends plus operational pulse so growth isn’t guesswork.',
     href: 'https://astridbonoan.github.io/E-Commerce_Dashboard.io/',
     category: 'saas',
   },
@@ -260,9 +295,12 @@ export function DemosPage() {
                   />
                 </div>
                 <div className="flex min-h-0 min-w-0 flex-1 flex-col p-2 sm:p-5">
-                  <h2 className="mb-1.5 line-clamp-2 text-xs font-semibold leading-snug text-slate-900 dark:text-white sm:mb-3 sm:text-xl sm:leading-normal">
+                  <h2 className="mb-1 line-clamp-2 text-xs font-semibold leading-snug text-slate-900 dark:text-white sm:mb-1.5 sm:text-lg sm:leading-snug md:text-xl">
                     {demo.title}
                   </h2>
+                  <p className="mb-2 line-clamp-3 flex-1 text-[0.65rem] leading-snug text-slate-600 dark:text-slate-400 sm:mb-3 sm:line-clamp-4 sm:text-sm sm:leading-relaxed">
+                    {demo.description}
+                  </p>
                   <a
                     href={demo.href}
                     target="_blank"
