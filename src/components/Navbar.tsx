@@ -80,11 +80,12 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
             </button>
           </div>
 
-          {/* Theme Toggle & Mobile Menu */}
+          {/* Theme Toggle (desktop) & Mobile Menu */}
           <div className="flex items-center space-x-4">
             <button
               onClick={onThemeToggle}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              type="button"
+              className="hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors md:flex md:items-center md:justify-center"
               aria-label="Toggle theme"
             >
               {isDark ? (
@@ -105,7 +106,10 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              type="button"
               className="md:hidden p-2 rounded-lg text-slate-900 dark:text-white"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-nav-menu"
             >
               <svg
                 className="w-6 h-6"
@@ -143,7 +147,8 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
         />
         {/* Sidebar Menu */}
         <div
-          className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-slate-900 shadow-2xl z-40 md:hidden transform transition-all duration-500 ease-in-out border-l border-slate-200 dark:border-slate-800 ${
+          id="mobile-nav-menu"
+          className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-slate-900 shadow-2xl z-40 md:hidden transform transition-all duration-500 ease-in-out border-l border-slate-200 dark:border-slate-800 flex flex-col ${
             isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
           }`}
           style={{ pointerEvents: isMenuOpen ? 'auto' : 'none' }}
@@ -173,7 +178,7 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
           </div>
 
           {/* Menu Items */}
-          <nav className="flex flex-col">
+          <nav className="flex flex-1 flex-col overflow-y-auto">
             <button
               onClick={() => {
                 onNavigate('/');
@@ -229,6 +234,34 @@ export function Navbar({ isDark, onThemeToggle, pathname, onNavigate }: NavbarPr
               Contact
             </button>
           </nav>
+
+          <div className="shrink-0 border-t border-slate-200 dark:border-slate-800">
+            <button
+              type="button"
+              onClick={onThemeToggle}
+              className="flex w-full items-center gap-3 px-6 py-4 text-left text-slate-700 transition-colors duration-200 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-yellow-400">
+                {isDark ? (
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                  </svg>
+                ) : (
+                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden>
+                    <path
+                      fillRule="evenodd"
+                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm5.657-9.193a1 1 0 00-1.414 0l-.707.707A1 1 0 005.05 13.536l.707.707a1 1 0 001.414-1.414l-.707-.707zm2.828 2.829a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                )}
+              </span>
+              <span className="text-sm font-semibold">
+                {isDark ? 'Light mode' : 'Dark mode'}
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </nav>
