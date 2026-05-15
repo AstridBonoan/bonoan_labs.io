@@ -130,6 +130,14 @@ export function Pricing({ onSelect }: { onSelect?: (subject: string) => void }) 
           </p>
         </div>
 
+        <div className="mb-12 mx-auto max-w-3xl rounded-xl border border-slate-200 bg-slate-50 px-5 py-4 dark:border-slate-700 dark:bg-slate-900/60 sm:px-6 sm:py-5">
+          <p className="text-center text-sm leading-relaxed text-slate-700 dark:text-slate-300 sm:text-left sm:text-base">
+            A <strong className="font-semibold text-slate-900 dark:text-white">50%</strong> upfront
+            deposit is required to begin all projects. The remaining balance is due upon completion,
+            before final delivery.
+          </p>
+        </div>
+
         {/* Website Creation */}
         <div className="mb-14">
           <div className="mb-6">
