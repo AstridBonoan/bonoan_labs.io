@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 
 const FILTERS = [
   { id: 'all', label: 'All' },
@@ -9,6 +9,48 @@ const FILTERS = [
 type FilterId = (typeof FILTERS)[number]['id'];
 type DemoCategory = Exclude<FilterId, 'all'>;
 
+const WEBSITE_INDUSTRIES = [
+  { id: 'all', label: 'All industries' },
+  { id: 'restaurant', label: 'Restaurants & dining' },
+  { id: 'cafe', label: 'Cafés & coffee' },
+  { id: 'auto', label: 'Auto shop' },
+  { id: 'construction', label: 'Construction & trades' },
+  { id: 'real-estate', label: 'Real estate' },
+  { id: 'legal', label: 'Legal & professional' },
+  { id: 'photography', label: 'Photography & creative' },
+  { id: 'fitness', label: 'Fitness & wellness' },
+  { id: 'fashion-retail', label: 'Fashion & retail' },
+  { id: 'barbershop', label: 'Barbershop & grooming' },
+] as const;
+
+const SAAS_INDUSTRIES = [
+  { id: 'all', label: 'All industries' },
+  { id: 'restaurant', label: 'Restaurants & hospitality' },
+  { id: 'field-services', label: 'Field services & contractors' },
+  { id: 'fitness', label: 'Fitness & gyms' },
+  { id: 'retail', label: 'Retail & ecommerce' },
+] as const;
+
+const ALL_INDUSTRIES = [
+  { id: 'all', label: 'All industries' },
+  { id: 'restaurant', label: 'Restaurants & dining' },
+  { id: 'cafe', label: 'Cafés & coffee' },
+  { id: 'auto', label: 'Auto shop' },
+  { id: 'construction', label: 'Construction & trades' },
+  { id: 'real-estate', label: 'Real estate' },
+  { id: 'legal', label: 'Legal & professional' },
+  { id: 'photography', label: 'Photography & creative' },
+  { id: 'fitness', label: 'Fitness & wellness' },
+  { id: 'fashion-retail', label: 'Fashion & retail' },
+  { id: 'barbershop', label: 'Barbershop & grooming' },
+  { id: 'field-services', label: 'Field services & contractors' },
+  { id: 'retail', label: 'Retail & ecommerce' },
+] as const;
+
+type WebsiteIndustryId = (typeof WEBSITE_INDUSTRIES)[number]['id'];
+type SaasIndustryId = (typeof SAAS_INDUSTRIES)[number]['id'];
+type IndustryId = WebsiteIndustryId | SaasIndustryId;
+
 interface Demo {
   image: string;
   alt: string;
@@ -16,6 +58,13 @@ interface Demo {
   description: string;
   href: string;
   category: DemoCategory;
+  industry: Exclude<IndustryId, 'all'>;
+}
+
+function industryOptionsFor(filter: FilterId) {
+  if (filter === 'websites') return WEBSITE_INDUSTRIES;
+  if (filter === 'saas') return SAAS_INDUSTRIES;
+  return ALL_INDUSTRIES;
 }
 
 const demos: readonly Demo[] = [
@@ -27,6 +76,7 @@ const demos: readonly Demo[] = [
       'Boutique fashion storefront with editorial pacing—built so browsing feels as intentional as the clothes.',
     href: 'https://astridbonoan.github.io/AS-ClothingEcommerce.io/',
     category: 'websites',
+    industry: 'fashion-retail',
   },
   {
     image: 'autoshop.png',
@@ -36,6 +86,7 @@ const demos: readonly Demo[] = [
       'Auto repair positioning with clear services and booking energy—because hesitation costs bays.',
     href: 'https://astridbonoan.github.io/AS-AutoShop.io/',
     category: 'websites',
+    industry: 'auto',
   },
   {
     image: 'restaurant.png',
@@ -45,6 +96,7 @@ const demos: readonly Demo[] = [
       'Family-kitchen storytelling with menu presence—invite people to the table before they walk in.',
     href: 'https://astridbonoan.github.io/AS-FilipinoRestaurant.io/',
     category: 'websites',
+    industry: 'restaurant',
   },
   {
     image: 'as-enterprises.png',
@@ -54,6 +106,7 @@ const demos: readonly Demo[] = [
       'Construction meets property clarity—proof, process, and a confident next step for big-ticket decisions.',
     href: 'https://astridbonoan.github.io/AS_RealEstate.io/',
     category: 'websites',
+    industry: 'construction',
   },
   {
     image: 'as-law.png',
@@ -63,6 +116,7 @@ const demos: readonly Demo[] = [
       'Corporate law positioning that reads sharp and human—authority for teams that are scaling fast.',
     href: 'https://astridbonoan.github.io/A-S_LawFirm.io/',
     category: 'websites',
+    industry: 'legal',
   },
   {
     image: 'lens-light.png',
@@ -72,6 +126,7 @@ const demos: readonly Demo[] = [
       'Photography portfolio with gallery-first flow—because the right clients decide with their eyes first.',
     href: '#',
     category: 'websites',
+    industry: 'photography',
   },
   {
     image: 'as-fitness.png',
@@ -81,6 +136,7 @@ const demos: readonly Demo[] = [
       'Gym landing with membership momentum—motivation, clarity, and a path from curious to committed.',
     href: 'https://astridbonoan.github.io/AS-Fitness/',
     category: 'websites',
+    industry: 'fitness',
   },
   {
     image: 'as-contractor.png',
@@ -90,6 +146,7 @@ const demos: readonly Demo[] = [
       'HVAC service story with seasonal hooks and low-friction contact—trust is the whole job.',
     href: 'https://astridbonoan.github.io/AS-Contractor.io/about',
     category: 'websites',
+    industry: 'construction',
   },
   {
     image: 'as-bistro.png',
@@ -99,6 +156,7 @@ const demos: readonly Demo[] = [
       'Urban bistro vibe with social-share polish—built for restaurants that live on first impressions.',
     href: 'https://astridbonoan.github.io/AS-BistroDemo.io',
     category: 'websites',
+    industry: 'restaurant',
   },
   {
     image: 'astrid-stone.png',
@@ -108,6 +166,7 @@ const demos: readonly Demo[] = [
       'High-end advisory narrative with editorial restraint—story-led design for listings worth pausing over.',
     href: 'https://astridbonoan.github.io/AS-RealEstate.io/',
     category: 'websites',
+    industry: 'real-estate',
   },
   {
     image: 'as-studio.png',
@@ -117,6 +176,7 @@ const demos: readonly Demo[] = [
       'Contemporary fashion ecommerce with lookbook rhythm—polish that still converts.',
     href: 'https://astridbonoan.github.io/AS-ClothingEcommerce/',
     category: 'websites',
+    industry: 'fashion-retail',
   },
   {
     image: 'as-cafe.png',
@@ -126,6 +186,7 @@ const demos: readonly Demo[] = [
       'Neighborhood café warmth—menu moments, hours, and a “meet us on the corner” pull you can feel.',
     href: 'https://astridbonoan.github.io/AS_Cafe.io/',
     category: 'websites',
+    industry: 'cafe',
   },
   {
     image: 'as-barbershop.png',
@@ -135,6 +196,7 @@ const demos: readonly Demo[] = [
       'Downtown barbershop precision—booking-led hero and quiet confidence for service brands on the strip.',
     href: 'https://astridbonoan.github.io/AS_Barbershop.io/',
     category: 'websites',
+    industry: 'barbershop',
   },
   {
     image: 'as-restaurant-dashboard.png',
@@ -144,6 +206,7 @@ const demos: readonly Demo[] = [
       'Operations dashboard concept—orders, flow, and the numbers a manager watches when the house is full.',
     href: 'https://astridbonoan.github.io/AS_Restaurant_Dashboard.io/',
     category: 'saas',
+    industry: 'restaurant',
   },
   {
     image: 'fieldpro-dashboard.png',
@@ -153,6 +216,7 @@ const demos: readonly Demo[] = [
       'Field-service ops view—crews, jobs, and cash-flow signals for teams that live in trucks and spreadsheets.',
     href: 'https://astridbonoan.github.io/Contractor_Dashboard.io/',
     category: 'saas',
+    industry: 'field-services',
   },
   {
     image: 'as-gym-dashboard.png',
@@ -162,6 +226,7 @@ const demos: readonly Demo[] = [
       'Fitness business snapshot—who’s engaged, who’s slipping, and what’s working without digging through tabs.',
     href: 'https://astridbonoan.github.io/AS_Gym_Dashboard.io/',
     category: 'saas',
+    industry: 'fitness',
   },
   {
     image: 'ecommerce-dashboard.png',
@@ -171,6 +236,7 @@ const demos: readonly Demo[] = [
       'Commerce admin concept—revenue trends plus operational pulse so growth isn’t guesswork.',
     href: 'https://astridbonoan.github.io/E-Commerce_Dashboard.io/',
     category: 'saas',
+    industry: 'retail',
   },
 ];
 
@@ -187,6 +253,7 @@ function countFor(filter: FilterId): number {
 
 export function DemosPage() {
   const [activeFilter, setActiveFilter] = useState<FilterId>('all');
+  const [industryFilter, setIndustryFilter] = useState<IndustryId>('all');
   const [isCompact, setIsCompact] = useState(() =>
     typeof window !== 'undefined' ? window.matchMedia(compactMq).matches : false,
   );
@@ -194,8 +261,24 @@ export function DemosPage() {
 
   const demoImageBase = `${import.meta.env.BASE_URL}demo-images/`;
 
-  const visibleDemos =
+  const categoryDemos =
     activeFilter === 'all' ? demos : demos.filter((d) => d.category === activeFilter);
+
+  const industryOptions = useMemo(() => {
+    const base = industryOptionsFor(activeFilter);
+    const used = new Set(categoryDemos.map((d) => d.industry));
+    return base.filter((opt) => opt.id === 'all' || used.has(opt.id as Exclude<IndustryId, 'all'>));
+  }, [activeFilter, categoryDemos]);
+
+  const visibleDemos =
+    industryFilter === 'all'
+      ? categoryDemos
+      : categoryDemos.filter((d) => d.industry === industryFilter);
+
+  const handleCategoryChange = (filter: FilterId) => {
+    setActiveFilter(filter);
+    setIndustryFilter('all');
+  };
 
   useLayoutEffect(() => {
     const mq = window.matchMedia(compactMq);
@@ -206,8 +289,14 @@ export function DemosPage() {
   }, []);
 
   useLayoutEffect(() => {
+    if (industryFilter !== 'all' && !industryOptions.some((o) => o.id === industryFilter)) {
+      setIndustryFilter('all');
+    }
+  }, [industryFilter, industryOptions]);
+
+  useLayoutEffect(() => {
     setMobilePages(1);
-  }, [activeFilter, visibleDemos.length, isCompact]);
+  }, [activeFilter, industryFilter, visibleDemos.length, isCompact]);
 
   const mobileCap = mobilePages * MOBILE_PAGE;
   const demosToRender = isCompact
@@ -225,15 +314,15 @@ export function DemosPage() {
           Explore live examples of websites, SaaS experiences, and interactive product builds.
         </p>
         <p className="mb-6 text-sm text-slate-500 dark:text-slate-400 sm:hidden">
-          Use the filters to shorten the list. On phones, demos load in a two-column grid a few
-          at a time so the page stays scannable.
+          Use the category and industry filters to shorten the list. On phones, demos load in a
+          two-column grid a few at a time so the page stays scannable.
         </p>
 
         {/* Category filter bar — single row on narrow screens (grid), relaxed flex from sm up */}
         <div
           role="group"
           aria-label="Filter demos by category"
-          className="mb-6 grid w-full grid-cols-3 gap-2 sm:mb-10 sm:flex sm:flex-wrap sm:gap-2"
+          className="mb-4 grid w-full grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-2"
         >
           {FILTERS.map((filter) => {
             const isActive = activeFilter === filter.id;
@@ -242,7 +331,7 @@ export function DemosPage() {
               <button
                 key={filter.id}
                 type="button"
-                onClick={() => setActiveFilter(filter.id)}
+                onClick={() => handleCategoryChange(filter.id)}
                 aria-pressed={isActive}
                 className={
                   'flex w-full min-w-0 flex-col items-center justify-center gap-1 rounded-full px-2 py-2.5 text-center text-xs font-semibold leading-tight transition-colors sm:inline-flex sm:w-auto sm:flex-row sm:items-center sm:gap-2 sm:px-4 sm:py-2 sm:text-sm sm:leading-normal ' +
@@ -267,7 +356,32 @@ export function DemosPage() {
           })}
         </div>
 
-        {visibleDemos.length === 0 ? (
+        <div className="mb-6 sm:mb-10">
+          <label
+            htmlFor="demo-industry-filter"
+            className="mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-300"
+          >
+            {activeFilter === 'saas'
+              ? 'Filter by business type'
+              : activeFilter === 'websites'
+                ? 'Filter by industry'
+                : 'Filter by industry or business type'}
+          </label>
+          <select
+            id="demo-industry-filter"
+            value={industryFilter}
+            onChange={(e) => setIndustryFilter(e.target.value as IndustryId)}
+            className="w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-900 shadow-sm transition-colors focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900/20 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:focus:border-white dark:focus:ring-white/20 sm:max-w-md"
+          >
+            {industryOptions.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {categoryDemos.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center dark:border-slate-700 dark:bg-slate-900">
             <h2 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">
               SaaS tool demos are on the way
@@ -276,6 +390,16 @@ export function DemosPage() {
               I&rsquo;m wrapping up a few in-progress dashboards and internal tools. Check back
               soon &mdash; or reach out if you&rsquo;d like a preview of what&rsquo;s in the
               pipeline.
+            </p>
+          </div>
+        ) : visibleDemos.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center dark:border-slate-700 dark:bg-slate-900">
+            <h2 className="mb-2 text-xl font-semibold text-slate-900 dark:text-white">
+              No demos in this category yet
+            </h2>
+            <p className="mx-auto max-w-xl text-slate-600 dark:text-slate-300">
+              Try another industry from the dropdown, or switch back to{' '}
+              <span className="font-medium">All industries</span>.
             </p>
           </div>
         ) : (
